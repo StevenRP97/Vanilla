@@ -1,0 +1,25 @@
+{
+	"adminUsers":[
+		{
+			"username":"rutbelt",
+			"passw":"1234",
+			"roll":0,
+			"estado":0
+		},
+		{
+			"username":"rutbelt2",
+			"passw":"1234",
+			"roll":1,
+			"estado":0
+		},
+		{
+			"username":"rutbelt3",
+			"passw":"1234",
+			"roll":2,
+			"estado":0
+		}
+	],
+	"usuarios":{},
+	"equipos":{},
+	"asignaciones":{}
+}
