@@ -4,31 +4,28 @@ const btn1 = document.getElementById('btn1');
 const btn2 = document.getElementById('btn2');
 const btn3 = document.getElementById('btn3');
 
-let users = [
-      { name: '', userId:'', mail: '', schedule: '', activeStatus: null },
-];
-
-let assets = [
-      { name: '', assetTag: '', details: '', activeStatus: null },
-];
-
-let assignments = [
-      { userId: '', assetTag: '', assignationStatus: null },
-];
+let datasets = {
+      users:[
+            { name: '', userId:'', mail: '', schedule: '', activeStatus: null },
+      ],
+      assets:[
+            { name: '', assetTag: '', details: '', activeStatus: null },
+      ],
+      assignments:[
+            { userId: '', assetTag: '', assignationStatus: null },
+      ],
+};
 
 // Declaración de acciones 
-const addButton = document.createElement("button")
-const breakL = document.createElement("br")
-
-display.appendChild(buildTable(users));
+display.appendChild(buildTable(datasets['users']));
 btn1.addEventListener('click', () => {
-      display.appendChild(buildTable(users));
+      display.appendChild(buildTable(datasets['users']));
 })
 btn2.addEventListener('click', () => {
-      display.appendChild(buildTable(assets));
+      display.appendChild(buildTable(datasets['assets']));
 })
 btn3.addEventListener('click', () => {
-      display.appendChild(buildTable(assignments));
+      display.appendChild(buildTable(datasets['assignments']));
 })
 
 // Funciones 
@@ -39,7 +36,7 @@ function loadTemplate(id) {
       display.appendChild(clon);
 }
 
-function buildTable(data) {
+function buildTable(data, buttonId) {
       display.innerHTML=""
       const table = document.createElement('table');
       const thead = document.createElement('thead');
@@ -54,9 +51,9 @@ function buildTable(data) {
       // Extract column headers dynamically from the first object
       const headers = Object.keys(data[0]);
       const headerRow = document.createElement('tr');
-      const addButton = document.createElement('tr');
-      addButton.id = "add"
-      addButton.innerHTML = "Holiii"
+      const addButton = document.createElement('button');
+      addButton.id = buttonId
+      addButton.innerHTML = "Agregar nuevo"
       headers.forEach(h => {
             const th = document.createElement('th');
             th.textContent = h[0].toUpperCase() + h.slice(1); // capitalize
@@ -77,5 +74,6 @@ function buildTable(data) {
 
       table.appendChild(thead);
       table.appendChild(tbody);
+      table.appendChild(addButton)
       return table;
 }
