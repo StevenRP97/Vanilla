@@ -5,28 +5,31 @@ const btn2 = document.getElementById('btn2');
 const btn3 = document.getElementById('btn3');
 
 let users = [
-      { name: 'Alice', age: 25, country: 'USA' },
-      { name: 'Bob', age: 30, country: 'UK' },
-      { name: 'Carlos', age: 22, country: 'Costa Rica' }
+      { name: '', userId:'', mail: '', schedule: '', activeStatus: null },
 ];
 
-let products = [
-      { product: 'Laptop', price: 1200, stock: 15 },
-      { product: 'Phone', price: 800, stock: 40 },
-      { product: 'Tablet', price: 600, stock: 20 }
+let assets = [
+      { name: '', assetTag: '', details: '', activeStatus: null },
 ];
 
-let countries = [
-      { country: 'France', capital: 'Paris', population: '67M' },
-      { country: 'Japan', capital: 'Tokyo', population: '125M' },
-      { country: 'Brazil', capital: 'Brasilia', population: '214M' }
+let assignments = [
+      { userId: '', assetTag: '', assignationStatus: null },
 ];
 
 // Declaración de acciones 
+const addButton = document.createElement("button")
+const breakL = document.createElement("br")
+
 display.appendChild(buildTable(users));
-btn1.addEventListener('click', () => {display.appendChild(buildTable(users));})
-btn2.addEventListener('click', () => {display.appendChild(buildTable(products));})
-btn3.addEventListener('click', () => {display.appendChild(buildTable(countries));})
+btn1.addEventListener('click', () => {
+      display.appendChild(buildTable(users));
+})
+btn2.addEventListener('click', () => {
+      display.appendChild(buildTable(assets));
+})
+btn3.addEventListener('click', () => {
+      display.appendChild(buildTable(assignments));
+})
 
 // Funciones 
 function loadTemplate(id) {
@@ -51,6 +54,9 @@ function buildTable(data) {
       // Extract column headers dynamically from the first object
       const headers = Object.keys(data[0]);
       const headerRow = document.createElement('tr');
+      const addButton = document.createElement('tr');
+      addButton.id = "add"
+      addButton.innerHTML = "Holiii"
       headers.forEach(h => {
             const th = document.createElement('th');
             th.textContent = h[0].toUpperCase() + h.slice(1); // capitalize
