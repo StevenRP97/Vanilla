@@ -32,3 +32,9 @@ body{
 	display: flex;
 	justify-content: center;
 }
+
+table, th, td {
+	border: 1px solid #333;
+	border-collapse: collapse;
+	padding: 6px;
+}
