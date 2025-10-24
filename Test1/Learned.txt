@@ -1,0 +1,4 @@
+# Aprendizajes
+
+## Usar Display Flex con CSS para acomodar elementos según necesite
+## Usar DOM para modificar las propiedades de elementos existente, así como crear elementos nuevos
